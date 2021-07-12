@@ -1,6 +1,6 @@
 Terraform script to deploy Logiq on GCP on default VPC.
 
-This script will create the below resources on GCP default-vpc , you may charged for the same.
+This script will create the below resources on GCP default-vpc , you may charged for the resources created.
 - Service account with access/ secret keys
 - Bucket
 - Instance with 8 VCPU/32GB
