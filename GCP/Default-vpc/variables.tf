@@ -25,3 +25,8 @@ variable "cred"{
     default="terraform-gcp1.json"
 
 }
+
+variable "machine"{
+    type=string
+    default="e2-standard-8"
+}

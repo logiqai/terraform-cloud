@@ -30,7 +30,7 @@ resource "google_compute_firewall" "logiq-firewall" {
 
 resource "google_compute_instance" "vm_instance"{
         name="terraform-test"
-        machine_type="e2-standard-8"
+        machine_type=var.machine
         tags=["terraform-test"]
 
     boot_disk{
