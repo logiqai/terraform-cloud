@@ -16,3 +16,17 @@ Follow the below steps.
     - region (GCP Region where the stack will be spun up)
     - cred (GCP credentials file name which will be used for the project)
     - machine (Machine configuration, minimum e2-standard-8 is required)
+- Once the variables have been modified, please do the below
+    - terraform init
+    - terraform plan
+    - terraform apply 
+-  Once the terraform successfully creates the resources, the end point will be 
+```
+
+access_key = <sensitive>
+bucket_name = "logiq-test-poc"
+logiq_endpoint = "X.X.X.X"
+secret_key = <sensitive>
+```
+- Navigate to the logiq_endpoint link displayed in the outputs and you should be able to load Logiq.
+![image](https://user-images.githubusercontent.com/67860971/125321249-1e4f3000-e35a-11eb-819b-3d55bce68624.png)
