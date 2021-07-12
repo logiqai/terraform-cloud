@@ -20,7 +20,7 @@ resource "google_compute_firewall" "logiq-firewall" {
     network = "default"
    allow {
     protocol = "tcp"
-    ports    = ["80", "514", "24224","24225","514","2514"]
+    ports    = ["80", "514", "24224","24225","20514","9998","9999","8081","443","3000","514","7514","2514"]
   }
    target_tags = ["terraform-test"]
 
