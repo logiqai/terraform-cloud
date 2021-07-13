@@ -11,7 +11,7 @@ variable "zone" {
 
 variable "project_id" {
     type=string
-    default="gcp-customer-1"
+    default=""
   
 }
 
