@@ -34,13 +34,16 @@ Once you have authenticated, Follow the below steps.
     - region (Enter the GCP Region where the stack will be spun up, by default, set to us-central1)
     - machine (Machine configuration, minimum e2-standard-8 is required)
 - Once the variables have been modified, please run the below commands.
-  ``` terraform init
+  ```
+     terraform init
   ```
 - Run the below command, it will give a preview of the resources created.
-  ``` terraform plan 
+  ``` 
+     terraform plan 
   ```
 - Run the below command, the resources will be created on GCP
-  ``` terraform apply --auto-approve
+  ```
+     terraform apply --auto-approve
   ```
 -  Once the terraform successfully creates the resources, the end point will be displayed in the outputs section.
 ```
