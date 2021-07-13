@@ -20,11 +20,6 @@ variable "region"{
     default = "us-central1"
 }
 
-variable "cred"{
-    type=string
-    default="terraform-gcp1.json"
-
-}
 
 variable "machine"{
     type=string
