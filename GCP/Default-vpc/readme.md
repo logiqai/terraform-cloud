@@ -1,28 +1,45 @@
 Terraform script to deploy Logiq on GCP on default VPC.
 
-This script will create the below resources on GCP default-vpc , you may charged for the resources created.
+This script will create the below resources on GCP default-vpc, you may charged for the resources created.
 - Service account with access/ secret keys
 - Bucket
 - Instance with 8 VCPU/32GB
 - SSD Disk 100GB 
 
-Follow the below steps.
-- Create a service account for Terraform which will enable it to spin up reources on GCP, download the keys in JSON format.
-- Place the JSON keys generated and place them in the Default-vpc folder.
+In order to make requests against the GCP API, you need to authenticate. The preferred method of provisioning resources with Terraform is to use Google Cloud SDK or you can use Google Cloud service account with Terraform, follow the below steps.
+
+Navigate to you GCP project
+Go to IAM section and choose service account key page in cloud console as shown below
+![image](https://user-images.githubusercontent.com/67860971/125415145-c326aebc-99b0-49e7-b32e-c827f1c2d66b.png)
+
+Choose an existing account or create a new one.
+Download the JSON key file
+Move the file the Default-vpc folder.
+You can also supply the key to Terraform using the environment variable as the below.
+ ```
+    export GOOGLE_APPLICATION_CREDENTIALS={{path}}
+ ```
+or
+Another way to authenticate is to run the below command, if you already have gcloud installed. If you don't already have it, you can install it from here(https://cloud.google.com/sdk/docs/install).
+```
+    gcloud auth application-default login
+```
+
+
+Once you have authenticated, Follow the below steps.
 - Variables.tf have the below parameters, which can be modified according to your project.
     - Zone (zone where the stack will be deployed)
     - bucket (Unique bucket name where the logs will be stored)
     - project-id (GCP Project-id which will be used)
     - region (GCP Region where the stack will be spun up)
-    - cred (GCP credentials file name which will be used for the project)
     - machine (Machine configuration, minimum e2-standard-8 is required)
 - Once the variables have been modified, please do the below
     - terraform init
     - terraform plan
     - terraform apply 
--  Once the terraform successfully creates the resources, the end point will be 
+-  Once the terraform successfully creates the resources, the end point will be displayed in the outputs section.
 ```
-
+Outputs:
 access_key = <sensitive>
 bucket_name = "logiq-test-poc"
 logiq_endpoint = "X.X.X.X"
