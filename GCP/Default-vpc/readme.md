@@ -6,7 +6,7 @@ This script will create the below resources on GCP default-vpc, you may charged 
 - Instance with 8 VCPU/32GB
 - SSD Disk 100GB 
 
-In order to make requests against the GCP API, you need to authenticate. The preferred method of provisioning resources with Terraform is to use Google Cloud SDK or you can use Google Cloud service account with Terraform, follow the below steps.
+In order to make resource requests against the GCP API, you need to authenticate. The preferred method of provisioning resources with Terraform is to use Google Cloud SDK or you can use Google Cloud service account with Terraform, follow the below steps.
 
 Navigate to you GCP project
 Go to IAM section and choose service account key page in cloud console as shown below
@@ -28,15 +28,23 @@ Another way to authenticate is to run the below command, if you already have gcl
 
 Once you have authenticated, Follow the below steps.
 - Variables.tf have the below parameters, which can be modified according to your project.
-    - Zone (zone where the stack will be deployed)
+    - Zone (modify the zone where the stack will be deployed, by default it is set to us-central1-a)
     - bucket (Unique bucket name where the logs will be stored)
-    - project-id (GCP Project-id which will be used)
-    - region (GCP Region where the stack will be spun up)
+    - project-id (Enter GCP Project-id which will be used)
+    - region (Enter the GCP Region where the stack will be spun up, by default, set to us-central1)
     - machine (Machine configuration, minimum e2-standard-8 is required)
-- Once the variables have been modified, please do the below
-    - terraform init
-    - terraform plan
-    - terraform apply 
+- Once the variables have been modified, please run the below commands.
+  ```
+     terraform init
+  ```
+- Run the below command, it will give a preview of the resources created.
+  ``` 
+     terraform plan 
+  ```
+- Run the below command, the resources will be created on GCP
+  ```
+     terraform apply --auto-approve
+  ```
 -  Once the terraform successfully creates the resources, the end point will be displayed in the outputs section.
 ```
 Outputs:
@@ -47,3 +55,8 @@ secret_key = <sensitive>
 ```
 - Navigate to the logiq_endpoint link displayed in the outputs and you should be able to load Logiq.
 ![image](https://user-images.githubusercontent.com/67860971/125321249-1e4f3000-e35a-11eb-819b-3d55bce68624.png)
+
+To bring the stack down, please run the below command.
+```
+terraform destroy
+```
