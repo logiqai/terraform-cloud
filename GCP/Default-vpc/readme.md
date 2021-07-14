@@ -29,10 +29,10 @@ Another way to authenticate is to run the below command, if you already have gcl
 Once you have authenticated, Follow the below steps.
 - Variables.tf have the below parameters, which can be modified according to your project.
     - Zone (modify the zone where the stack will be deployed, by default it is set to us-central1-a)
-    - bucket (Unique bucket name where the logs will be stored)
+    - bucket (Key in the unique bucket name where the logs will be stored)
     - project-id (Enter GCP Project-id which will be used)
     - region (Enter the GCP Region where the stack will be spun up, by default, set to us-central1)
-    - machine (Machine configuration, minimum e2-standard-8 is required)
+    - machine (Machine configuration, minimum e2-standard-8 is required, you can modify this parameter if you need a bigger instance)
 - Once the variables have been modified, please run the below commands.
   ```
      terraform init
