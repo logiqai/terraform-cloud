@@ -72,6 +72,12 @@ resource "google_compute_instance" "vm_instance"{
     }
 }
 
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [google_compute_instance.vm_instance]
+
+  create_duration = "450s"
+}
+
 
 
 
