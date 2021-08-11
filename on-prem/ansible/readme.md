@@ -1,4 +1,4 @@
-Steps to run Ansible script for Logiq isntalation using Microk8s on Linux.
+Steps to run Ansible playbook for Logiq installation using Microk8s on Linux.
 
 - Ensure that no application is using port 80, to find the application, run the below command and stop it.
 ```
